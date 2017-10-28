@@ -1,12 +1,12 @@
 <?php
 
-if (isset($_GET['account_number']) && !empty($_GET['account_number'])){
-	$account_number = $_GET['account_number'];
-	if (preg_match('account_number', $account_number)){
+if (isset($_GET['accountnumber']) && !empty($_GET['accountnumber'])){
+	$accountnumber = $_GET['accountnumber'];
+	if (preg_match('accountnumber', $accountnumber)){
 		echo "Success Login!"
 	} else {
 		echo "Wrong account number or password!"
-		typeagain();
+		typeagain(); //prepei na thn ftiaxw.
 	}
 }
 ?>
