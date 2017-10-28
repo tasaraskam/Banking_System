@@ -8,8 +8,7 @@ $userpassword = "7777";
 $my_db = "banking_system";
 $errors = $array[];
 
-mysql_connect("$servername","$userhost","");
-mysql_select_db("banking_system");
+mysql_connect("$servername","$userhost","","my_db") or die("Connection failed!");
 
 //to prevent mysql injection.
 $accountnumber = stripcslashes($accountnumber);
@@ -22,6 +21,13 @@ $password = mysql_real_escape_string($password);
 	$password = mysql_real_escape_string($_POST['pass']);
 } */
 
+if (isset($_POST['register'])){
+	$accountnumber = mysql_real_escape_string($_POST['account_number']);
+	$password = mysql_real_escape_string($_POST['pass']);
+}
+
+//for loop pou metraei tis lathos kataxwrhseis usn,psw.
+
 for ($i = 0; $i < len($errors); $i++){
 	if (empty($accountnumber)) {
 		echo "Please fill again the account number.";
@@ -31,6 +37,7 @@ for ($i = 0; $i < len($errors); $i++){
 		array_push($errors, "Fill the password");
 	}
 }
+
 $result = mysql_query('select * from loginsystem where AccountNumber = ' .$accountnumber. 'and password =' .$password. '');
 
 $row = mysql_fetch_array($result);
