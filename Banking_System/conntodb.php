@@ -6,7 +6,7 @@ $servername = "localhost";
 $userhost = "root";
 $userpassword = "7777";
 $my_db = "banking_system";
-$errors = $array[];
+$errors = array();
 
 mysql_connect("$servername","$userhost","","my_db") or die("Connection failed!");
 
@@ -28,7 +28,7 @@ if (isset($_POST['register'])){
 
 //for loop pou metraei tis lathos kataxwrhseis usn,psw.
 
-for ($i = 0; $i < len($errors); $i++){
+for ($i = 0; $i < $errors; $i++){
 	if (empty($accountnumber)) {
 		echo "Please fill again the account number.";
 		array_push($errors, "Fill the account number");	
